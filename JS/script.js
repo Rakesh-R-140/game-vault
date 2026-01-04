@@ -26,7 +26,7 @@ const games = [
 ]
 
 
-let CartCount = 0;
+let cart = []
 
 const CartContainer = document.getElementById('cart-count')
 
@@ -53,8 +53,20 @@ games.forEach((game) => {
     const button = card.querySelector('button')
 
     button.addEventListener('click', () => {
-        CartCount++
-        CartContainer.textContent = CartCount
+
+
+
+
+        const alreadyinCart = cart.find(item => item.id === game.id);
+        if (alreadyinCart) {
+            alert('already in Cart')
+            return;
+        }
+
+        cart.push(game)
+        console.log(cart)
+        CartContainer.textContent = cart.length;
+
 
 
     })
