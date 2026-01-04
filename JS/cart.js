@@ -3,7 +3,7 @@ let cart = JSON.parse(localStorage.getItem("cart")) || [];
 const cartContainer = document.getElementById("cart-container");
 
 if (cart.length === 0) {
-    cartContainer.innerHTML = 'cart was empty'
+    cartContainer.innerHTML = '<h2>Cart is empty !!</h2>'
 }
 
 cart.forEach((game, index) => {
