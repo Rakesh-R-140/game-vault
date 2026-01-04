@@ -6,7 +6,7 @@ if (cart.length === 0) {
     cartContainer.innerHTML = '<h2>Cart is empty !!</h2>'
 }
 
-cart.forEach((game, index) => {
+cart.forEach((game) => {
 
     const card = document.createElement('div')
     card.classList.add('game-card')
@@ -19,15 +19,24 @@ cart.forEach((game, index) => {
     <button class="remove-btn">Remove</button>
     `
 
+
     const deleteBtn = card.querySelector('.remove-btn')
 
     deleteBtn.addEventListener('click', () => {
-        cart.splice(index, 1)
-        localStorage.setItem('cart', JSON.stringify(cart))
-        location.reload();
+        console.log(card)
+        cart = cart.filter(item => item.id !== game.id)
 
+        localStorage.setItem('cart', JSON.stringify(cart))
+
+
+        card.remove()
+
+        if (cart.length === 0) {
+            cartContainer.innerHTML = '<h2>Cart is empty !!</h2>'
+        }
 
     })
+
     cartContainer.appendChild(card)
 
 
