@@ -5,19 +5,49 @@
     <meta charset="UTF-8">
     <title>Game Store</title>
     <link rel="stylesheet" href="css/style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+
+
 </head>
 
 <body>
 
     <header class="header">
-        <h1>🎮 Game Store</h1>
+        <div class="game-store-container">
+
+            <!-- <img> -->
+            <div class="game-store"> Game Vault
+            </div>
+
+
+        </div>
+
+        <div class="search-box">
+            <svg class="search-icon" viewBox="0 0 24 24">
+                <path d="M21 21l-4.35-4.35m1.6-5.4a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+            <input id="search-input" type="text" placeholder="Search Games..." />
+        </div>
+
         <div class="cart">
 
-            <a style="color:white ;text-decoration:none;" href="cart.html">🛒 Cart: <span style="color:white"
-                    id="cart-count">0
-                </span></a>
+            <a style="color:white ;text-decoration:none;" href="cart.html">
+                <div class="cart-container">
+                    <div class="cart-icon">
+                        <img class="cart-img" src="white-shopping-cart-icon-9.jpg">
+                    </div>
+                    <span style="color:white" class="cart-count" id="cart-count">0
+                    </span>
+
+                </div>
+            </a>
         </div>
     </header>
+
+
 
     <main class="game-container" id="game-container">
         <!-- Game cards will come here -->
