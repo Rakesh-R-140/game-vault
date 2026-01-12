@@ -116,34 +116,30 @@ function renderGames(gameList) {
 
         const ComingSoon = game.price === 'Coming soon!'
 
-        card.innerHTML = `
-      <img src="${game.image}">
-      <div class="game-info" >
-      <p>${game.name}</p>
-    <p>${ComingSoon ? 'Arriving Soon!!' : '$' + game.price}</p></div> 
-      <button> 
+        card.innerHTML =
+            `
+        <img src="${game.image}">
+        <div
+         class="game-info" >
+         <p>
+        ${game.name}
+        </p>
+     <p>
+    ${ComingSoon ? 'Arriving Soon!!' : '₹' + game.price}
+    </p>
+        </div> 
+      <button  class="${existsInCart ? 'added-to-cart' : ''}"> 
   ${ComingSoon ? "Remind Me" : (existsInCart ? "Add More" : "Add to Cart")}
+    </button >  
 
-  
-
-</button >  
-
-
-
-`;
+    `;
 
         const button = card.querySelector("button");
 
 
-        // sync button state
-        // if (cart.find(item => item.id === game.id)) {
-        //     button.textContent = "Added";
-        //     button.disabled = true;
-        //     button.style.opacity = "0.6";
-        // }
+
 
         button.addEventListener("click", () => {
-
 
 
 
@@ -178,12 +174,16 @@ function renderGames(gameList) {
             updateUI()
             renderGames(gameList)
 
+
+
+
         });
 
 
 
 
         gamesContainer.appendChild(card);
+
     });
 }
 

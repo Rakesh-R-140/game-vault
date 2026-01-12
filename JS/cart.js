@@ -2,9 +2,16 @@ let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 const cartContainer = document.getElementById("cart-container");
 
-if (cart.length === 0) {
-    cartContainer.innerHTML = '<h2>Cart is empty !!</h2>'
+const cartmessage = document.querySelector('.cart-message-container')
+function cartMessages() {
+    if (cart.length === 0) {
+        cartmessage.innerHTML = ' <p class="cart-message">Cart is empty !</p>  <img class="cart-empty-icon" src="empty-cart.png" >'
+    }
+    else {
+        cartmessage.innerHTML = '';
+    }
 }
+
 
 
 
@@ -12,6 +19,9 @@ if (cart.length === 0) {
 function CartRender() {
 
     cartContainer.innerHTML = ''
+
+    cartMessages()
+
     cart.forEach((game) => {
 
         const card = document.createElement('div')
@@ -41,10 +51,12 @@ function CartRender() {
 
 
             updateCart()
-            card.remove()
 
 
 
+            // if (cart.length === 0) {
+            //     cartmessage.innerHTML = ' <p class="cart-message">Cart is empty !</p>  <img class="cart-empty-icon" src="empty-cart.png" >'
+            // }
 
 
 
@@ -60,9 +72,13 @@ function CartRender() {
             }
 
             else {
-                card = cart.filter(item => item.id !== game.id)
+                cart = cart.filter(item => item.id !== game.id)
             }
             updateCart()
+
+            // if (cart.length === 0) {
+            //     cartmessage.innerHTML = ' <p class="cart-message">Cart is empty !</p>  <img class="cart-empty-icon" src="empty-cart.png" >'
+            // }
 
 
         })
@@ -90,6 +106,7 @@ function CartRender() {
 function updateCart() {
     localStorage.setItem('cart', JSON.stringify(cart))
     CartRender()
+
 }
 
 

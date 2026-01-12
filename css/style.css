@@ -205,8 +205,36 @@ body {
     text-shadow: 0 0 8px rgba(0, 120, 242, 0.6);
 }
 
-.AddMore {
-    background-color: #2E7D32;
-    /* dark green */
-    color: #FFFFFF;
+
+
+.game-card button.added-to-cart {
+    background-color: #22c55e;
+    color: white;
+    border: none;
+}
+
+.game-card button.added-to-cart:hover {
+    background-color: #16a34a;
+}
+
+
+.cart-message-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-message {
+    font-size: 50px;
+    color: #c2c2c2;
+}
+
+.cart-empty-icon {
+    width: 200px;
+}
+
+.back-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
 }
